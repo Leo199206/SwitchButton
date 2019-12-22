@@ -7,7 +7,7 @@ apply plugin: 'org.jetbrains.dokka'
 
 
 
-version = "1.0.1"
+version = "1.0.0"
 android {
     resourcePrefix "androidTool"
     compileSdkVersion 29
