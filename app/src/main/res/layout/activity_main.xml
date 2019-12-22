@@ -17,7 +17,7 @@
         android:text="iOS Style Switch Button"
         android:textSize="16sp" />
 
-    <io.ganguo.switchs.SwitchButton
+    <com.jlertele.switchs.SwitchButton
         android:id="@+id/sw_ios_btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         app:trackOnBgColor="@color/color_4cd964"
         app:trackWidth="51dp" />
 
-    <io.ganguo.switchs.SwitchIOSButton
+    <com.jlertele.switchs.SwitchIOSButton
         android:id="@+id/sw_ios_btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
         android:text="Material Design Switch Button"
         android:textSize="16sp" />
 
-    <io.ganguo.switchs.SwitchButton
+    <com.jlertele.switchs.SwitchButton
         android:id="@+id/sw_android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,18 +1,15 @@
-package io.ganguo.switchs
+package com.jlertele.switchs
 
 import android.animation.ValueAnimator
 import android.content.Context
-import android.content.res.TypedArray
 import android.graphics.*
 import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.graphics.Paint.FILTER_BITMAP_FLAG
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
-import com.jlertele.switchs.R
 
 
 /**

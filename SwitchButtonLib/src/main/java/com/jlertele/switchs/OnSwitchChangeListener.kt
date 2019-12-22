@@ -1,4 +1,4 @@
-package io.ganguo.switchs
+package com.jlertele.switchs
 
 /**
  * <pre>
