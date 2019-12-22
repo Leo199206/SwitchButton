@@ -129,8 +129,7 @@ implementation  'com.jlertele.widget:SwitchButtonLib:1.0.0'
 | iosLeftLineMarginLeft | ios style left line Margin Left. Only SwitchIOSButton has |
 | iosRightCircleColor | ios style right small circle. Only SwitchIOSButton has |
 | iosRightCircleRadius | ios style right small circle radius. Only SwitchIOSButton has |
-| iosRightCircleWidth | ios style right small circle line width. Only SwitchIOSButton has 
- |
+| iosRightCircleWidth | ios style right small circle line width. Only SwitchIOSButton has |
 | iosRightCircleMarginRight | ios style right small circle Margin Right. Only SwitchIOSButton has |
 
 #### LICENSE
