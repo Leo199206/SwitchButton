@@ -1,11 +1,9 @@
-package com.jlertele.switchs
+package com.jlertele.widget
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
-import com.jlertele.switchs.R
-import com.jlertele.switchs.SwitchButton
 
 /**
  * <pre>

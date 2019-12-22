@@ -1,4 +1,4 @@
-package com.jlertele.switchs
+package com.jlertele.widget
 
 /**
  * <pre>

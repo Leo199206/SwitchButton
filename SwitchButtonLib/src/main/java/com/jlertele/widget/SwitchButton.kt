@@ -1,4 +1,4 @@
-package com.jlertele.switchs
+package com.jlertele.widget
 
 import android.animation.ValueAnimator
 import android.content.Context
@@ -191,7 +191,10 @@ open class SwitchButton : View {
             DEFAULT_THUMB_RADIUS
         )
         trackWidth =
-            array.getDimensionPixelOffset(R.styleable.SwitchButton_trackWidth, DEFAULT_TRACK_WIDTH)
+            array.getDimensionPixelOffset(
+                R.styleable.SwitchButton_trackWidth,
+                DEFAULT_TRACK_WIDTH
+            )
         trackHeight =
             array.getDimensionPixelOffset(
                 R.styleable.SwitchButton_trackHeight,
@@ -523,7 +526,7 @@ open class SwitchButton : View {
      * 开光状态监听
      * @param listener OnSwitchToggleChangeListener
      */
-    fun setToggleChangeListener(listener: OnSwitchChangeListener) {
+    fun setSwitchChangeListener(listener: OnSwitchChangeListener) {
         this.toggleListener = listener
     }
 
