@@ -1,0 +1,41 @@
+<resources>
+    <declare-styleable name="SwitchIOSButton">
+        <attr name="hasShadow" format="boolean" />
+        <attr name="primaryColor" format="color" />
+        <attr name="primaryColorDark" format="color" />
+        <attr name="offColor" format="color" />
+        <attr name="offColorDark" format="color" />
+        <attr name="barColor" format="color" />
+        <attr name="bgColor" format="color" />
+        <attr name="shadowColor" format="color" />
+        <attr name="ratioAspect" format="float" />
+        <attr name="isOpened" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="thumbBgShadowColor" format="color" />
+        <attr name="thumbRadius" format="dimension" />
+        <attr name="thumbOnBgColor" format="color" />
+        <attr name="thumbOffBgColor" format="color" />
+        <attr name="trackWidth" format="dimension" />
+        <attr name="trackHeight" format="dimension" />
+        <attr name="trackOffTransitBgColor" format="color" />
+        <attr name="trackOnBgColor" format="color" />
+        <attr name="trackOffBgColor" format="color" />
+        <attr name="trackBgRadius" format="dimension" />
+        <attr name="isOpen" format="boolean" />
+        <attr name="isEnableThumbShadow" format="boolean" />
+        <attr name="thumbAnimatorDuration" format="integer" />
+        <attr name="thumbShadowDy" format="float" />
+        <attr name="thumbShadowDx" format="float" />
+        <attr name="thumbShadowRadius" format="float" />
+        <attr name="iosLeftLineColor" format="color" />
+        <attr name="iosLeftLineHeight" format="dimension"/>
+        <attr name="iosLeftLineWidth" format="dimension"/>
+        <attr name="iosLeftLineMarginLeft" format="dimension"/>
+        <attr name="iosRightCircleColor" format="color"/>
+        <attr name="iosRightCircleRadius" format="dimension"/>
+        <attr name="iosRightCircleWidth" format="dimension"/>
+        <attr name="iosRightCircleMarginRight" format="dimension"/>
+    </declare-styleable>
+</resources>
