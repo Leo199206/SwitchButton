@@ -1,18 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/color_5A5858"
+        android:layout_marginTop="15dp"
+        android:text="iOS Style Switch Button"
+        android:textSize="16sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <io.ganguo.switchs.SwitchButton
+        android:id="@+id/sw_ios_btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:isEnableThumbShadow="true"
+        app:isOpen="true"
+        android:layout_marginTop="15dp"
+        app:thumbBgShadowColor="@color/color_black"
+        app:thumbOnBgColor="@color/color_white"
+        app:thumbRadius="14dp"
+        app:thumbShadowDx="8"
+        app:thumbShadowDy="15"
+        app:thumbShadowRadius="16"
+        app:trackHeight="31dp"
+        app:trackOffBgColor="@color/color_e3e3e3"
+        app:trackOffTransitBgColor="@color/color_cbcecf"
+        app:trackOnBgColor="@color/color_4cd964"
+        app:trackWidth="51dp" />
+
+    <io.ganguo.switchs.SwitchIOSButton
+        android:id="@+id/sw_ios_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:iosLeftLineColor="@color/color_white"
+        app:iosRightCircleColor="@color/color_cbcecf"
+        app:isEnableThumbShadow="true"
+        app:isOpen="true"
+        android:layout_marginTop="15dp"
+        app:thumbBgShadowColor="@color/color_black"
+        app:thumbOnBgColor="@color/color_white"
+        app:thumbRadius="14dp"
+        app:thumbShadowDx="8"
+        app:thumbShadowDy="15"
+        app:thumbShadowRadius="16"
+        app:trackHeight="31dp"
+        app:trackOffBgColor="@color/color_e3e3e3"
+        app:trackOffTransitBgColor="@color/color_cbcecf"
+        app:trackOnBgColor="@color/color_4cd964"
+        app:trackWidth="51dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_5A5858"
+        android:layout_marginTop="15dp"
+        android:text="Material Design Switch Button"
+        android:textSize="16sp" />
+
+    <io.ganguo.switchs.SwitchButton
+        android:id="@+id/sw_android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        app:isEnableThumbShadow="true"
+        app:thumbBgShadowColor="@color/color_black"
+        app:thumbOffBgColor="@color/color_5A5858"
+        app:thumbOnBgColor="@color/color_b71c1c"
+        app:thumbRadius="12dp"
+        app:trackHeight="16dp"
+        app:trackOffBgColor="@color/color_777676"
+        app:trackOffTransitBgColor="@color/color_f75a53"
+        app:trackOnBgColor="@color/color_f75a53"
+        app:trackWidth="40dp" />
+
+</LinearLayout>

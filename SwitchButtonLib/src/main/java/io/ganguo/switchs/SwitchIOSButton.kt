@@ -1,9 +1,11 @@
 package io.ganguo.switchs
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.Log
+import androidx.annotation.ColorInt
+import com.jlertele.switchs.R
 
 /**
  * <pre>
@@ -26,13 +28,32 @@ import android.util.AttributeSet
  * @property circlePaint 小圆画笔
  */
 class SwitchIOSButton : SwitchButton {
+    @JvmOverloads
+    constructor(context: Context?) : this(context, null)
+
+    @JvmOverloads
+    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
+
+    @JvmOverloads
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        initIOSAttributes(attrs)
+        initIOSPaint()
+    }
+
+
+    @ColorInt
     private var iosLeftLineColor: Int = Color.WHITE
-    private var iosLeftLineHeight: Int = 20
-    private var iosLeftLineWidth: Int =2
-    private var iosLeftLineMarginLeft: Int = 24
-    private var iosRightCircleColor: Int = Color.DKGRAY
-    private var iosRightCircleRadius: Int = 6
-    private var iosRightCircleWidth: Int = 2
+    private var iosLeftLineHeight: Int = 0
+    private var iosLeftLineWidth: Int = 2
+    private var iosLeftLineMarginLeft: Int = 0
+    @ColorInt
+    private var iosRightCircleColor: Int = Color.LTGRAY
+    private var iosRightCircleRadius: Int = 0
+    private var iosRightCircleWidth: Int = 0
     private var iosRightCircleMarginRight: Int = iosLeftLineMarginLeft - iosRightCircleRadius
 
     private var linePath: Path = Path()
@@ -40,27 +61,44 @@ class SwitchIOSButton : SwitchButton {
     private var linePaint: Paint = Paint()
     private var circlePaint: Paint = Paint()
 
-    constructor(context: Context?) : this(context, null)
-    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initIOSPaint()
-    }
 
     /**
-     * 初始化自定义属性
-     * @param array TypedArray
+     * 初始化IOS样式自定义属性
+     * @param attrs AttributeSet
      */
-    override fun initAttributes(array: TypedArray) {
-        super.initAttributes(array)
-        iosLeftLineColor = array.getColor(R.styleable.SwitchButton_iosLeftLineColor, iosLeftLineColor)
-        iosLeftLineHeight = array.getDimensionPixelOffset(R.styleable.SwitchButton_iosLeftLineHeight, iosLeftLineHeight)
-        iosLeftLineWidth = array.getDimensionPixelOffset(R.styleable.SwitchButton_iosLeftLineWidth, iosLeftLineWidth)
-        iosLeftLineMarginLeft = array.getDimensionPixelOffset(R.styleable.SwitchButton_iosLeftLineMarginLeft, iosLeftLineMarginLeft)
+    private fun initIOSAttributes(attrs: AttributeSet?) {
+        val array = context.obtainStyledAttributes(attrs, R.styleable.SwitchButton)
+        iosLeftLineColor =
+            array.getColor(R.styleable.SwitchButton_iosLeftLineColor, Color.WHITE)
+        iosLeftLineHeight = array.getDimensionPixelOffset(
+            R.styleable.SwitchButton_iosLeftLineHeight,
+            (trackHeight * 0.4f).toInt()
+        )
+        iosLeftLineWidth = array.getDimensionPixelOffset(
+            R.styleable.SwitchButton_iosLeftLineWidth,
+            2
+        )
+        iosLeftLineMarginLeft = array.getDimensionPixelOffset(
+            R.styleable.SwitchButton_iosLeftLineMarginLeft,
+            (trackWidth * 0.2f).toInt()
+        )
 
-        iosRightCircleColor = array.getColor(R.styleable.SwitchButton_iosRightCircleColor, iosRightCircleColor)
-        iosRightCircleRadius = array.getDimensionPixelOffset(R.styleable.SwitchButton_iosRightCircleRadius, iosRightCircleRadius)
-        iosRightCircleWidth = array.getDimensionPixelOffset(R.styleable.SwitchButton_iosRightCircleWidth, iosRightCircleWidth)
-        iosRightCircleMarginRight = array.getDimensionPixelOffset(R.styleable.SwitchButton_iosRightCircleMarginRight, iosRightCircleMarginRight)
+
+        iosRightCircleColor =
+            array.getColor(R.styleable.SwitchButton_iosRightCircleColor, Color.DKGRAY)
+        iosRightCircleRadius = array.getDimensionPixelOffset(
+            R.styleable.SwitchButton_iosRightCircleRadius,
+            (thumbRadius * 0.2f).toInt()
+        )
+        iosRightCircleWidth = array.getDimensionPixelOffset(
+            R.styleable.SwitchButton_iosRightCircleWidth,
+            2
+        )
+        iosRightCircleMarginRight = array.getDimensionPixelOffset(
+            R.styleable.SwitchButton_iosRightCircleMarginRight,
+            iosLeftLineMarginLeft
+        )
+        array.recycle()
     }
 
 
@@ -116,7 +154,12 @@ class SwitchIOSButton : SwitchButton {
         circlePath.reset()
         var centerX = width - iosRightCircleMarginRight - iosRightCircleRadius
         var centerY = height * 0.5f
-        circlePath.addCircle(centerX.toFloat(), centerY, iosRightCircleRadius.toFloat(), Path.Direction.CW)
+        circlePath.addCircle(
+            centerX.toFloat(),
+            centerY,
+            iosRightCircleRadius.toFloat(),
+            Path.Direction.CW
+        )
         canvas.save()
         canvas.drawPath(circlePath, circlePaint)
         canvas.restore()

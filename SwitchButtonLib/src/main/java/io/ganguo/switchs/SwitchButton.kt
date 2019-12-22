@@ -7,10 +7,12 @@ import android.graphics.*
 import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.graphics.Paint.FILTER_BITMAP_FLAG
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
+import com.jlertele.switchs.R
 
 
 /**
@@ -58,17 +60,32 @@ import androidx.annotation.Dimension
  *
  */
 open class SwitchButton : View {
+    @JvmOverloads
     constructor(context: Context?) : this(context, null)
+
+    @JvmOverloads
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
+
+    @JvmOverloads
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
     ) {
-        initView()
+        initView(context, attrs, defStyleAttr)
+    }
+
+
+    /**
+     * View 初始化
+     */
+    protected open fun initView(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) {
+        setLayerType(LAYER_TYPE_SOFTWARE, null)
         initAttributes(attrs)
+        initButtonState()
         initPaint()
     }
+
 
     @ColorInt
     protected var thumbBgShadowColor: Int = Color.BLACK
@@ -85,22 +102,22 @@ open class SwitchButton : View {
     @ColorInt
     protected var trackOnBgColor: Int = Color.GREEN
     @ColorInt
-    protected var trackOffBgColor: Int = Color.DKGRAY
+    protected var trackOffBgColor: Int = Color.LTGRAY
 
     @Dimension
-    protected var thumbRadius: Int = 62
+    protected var thumbRadius: Int = 0
     @Dimension
     protected var thumbSize: Int = thumbRadius * 2
     @Dimension
-    protected var trackWidth: Int = 100
+    protected var trackWidth: Int = 0
     @Dimension
-    protected var trackHeight: Int = 62
+    protected var trackHeight: Int = 0
     @Dimension
-    protected var trackBgRadius: Int = 50
+    protected var trackBgRadius: Int = 0
 
     protected var isOpened: Boolean = false
     protected var isOpenedLast: Boolean = !isOpened
-    protected var isEnableThumbShadow: Boolean = true
+    protected var isEnableThumbShadow: Boolean = false
 
     protected var trackOnPaint: Paint = Paint()
     protected var trackOffPaint: Paint = Paint()
@@ -124,7 +141,19 @@ open class SwitchButton : View {
         newThumbAnimator()
     }
     private var animatedFraction: Float = 1f
-    private var toggleListener: OnSwitchToggleChangeListener? = null
+    private var toggleListener: OnSwitchChangeListener? = null
+
+
+    /**
+     * @property DEFAULT_THUMB_RADIUS 默认滑块大小半径
+     * @property DEFAULT_TRACK_HEIGHT 默认控件背景高度
+     * @property DEFAULT_TRACK_WIDTH 默认控件宽度
+     */
+    companion object {
+        private const val DEFAULT_THUMB_RADIUS: Int = 42
+        private const val DEFAULT_TRACK_WIDTH: Int = 150
+        private const val DEFAULT_TRACK_HEIGHT: Int = 90
+    }
 
 
     /**
@@ -149,15 +178,6 @@ open class SwitchButton : View {
      */
     private fun initAttributes(attrs: AttributeSet?) {
         val array = context.obtainStyledAttributes(attrs, R.styleable.SwitchButton)
-        initAttributes(array)
-        array.recycle()
-    }
-
-    /**
-     * 初始化控件自定义属性
-     * @param array TypedArray
-     */
-    protected open fun initAttributes(array: TypedArray) {
         thumbBgShadowColor =
             array.getColor(R.styleable.SwitchButton_thumbBgShadowColor, thumbBgShadowColor)
         thumbOnBgColor = array.getColor(R.styleable.SwitchButton_thumbOnBgColor, thumbOnBgColor)
@@ -169,12 +189,26 @@ open class SwitchButton : View {
         if (thumbOffBgColor == -1) {
             thumbOffBgColor = thumbOnBgColor
         }
-        thumbRadius = array.getDimensionPixelOffset(R.styleable.SwitchButton_thumbRadius, thumbSize)
-        trackWidth = array.getDimensionPixelOffset(R.styleable.SwitchButton_trackWidth, trackWidth)
+        thumbRadius = array.getDimensionPixelOffset(
+            R.styleable.SwitchButton_thumbRadius,
+            DEFAULT_THUMB_RADIUS
+        )
+        trackWidth =
+            array.getDimensionPixelOffset(R.styleable.SwitchButton_trackWidth, DEFAULT_TRACK_WIDTH)
         trackHeight =
-            array.getDimensionPixelOffset(R.styleable.SwitchButton_trackHeight, trackHeight)
+            array.getDimensionPixelOffset(
+                R.styleable.SwitchButton_trackHeight,
+                DEFAULT_TRACK_HEIGHT
+            )
         trackBgRadius =
-            array.getDimensionPixelOffset(R.styleable.SwitchButton_trackBgRadius, trackBgRadius)
+            array.getDimensionPixelOffset(
+                R.styleable.SwitchButton_trackBgRadius,
+                -1
+            )
+        if (trackBgRadius == -1) {
+            trackBgRadius = trackHeight / 2
+        }
+
         thumbAnimatorDuration =
             array.getInt(R.styleable.SwitchButton_thumbAnimatorDuration, thumbAnimatorDuration)
         thumbSize = thumbRadius * 2
@@ -187,6 +221,23 @@ open class SwitchButton : View {
         isOpened = array.getBoolean(R.styleable.SwitchButton_isOpen, isOpened)
         isEnableThumbShadow = array.getBoolean(R.styleable.SwitchButton_isEnableThumbShadow, true)
         isOpenedLast = !isOpened
+        array.recycle()
+    }
+
+
+    /**
+     * 设置按钮初始状态
+     */
+    private fun initButtonState() {
+        if (isOpened) {
+            bgAlpha = 255
+            animatedFraction = 0f
+            thumbOffsetParent = 1.0f
+        } else {
+            bgAlpha = 0
+            animatedFraction = 1f
+            thumbOffsetParent = 0f
+        }
     }
 
 
@@ -197,17 +248,29 @@ open class SwitchButton : View {
      */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val defaultWidth = trackWidth
-        var defaultHeight = if (thumbSize > trackHeight) {
+        var defaultHeight = calculateHeight()
+        val width = measureSize(widthMeasureSpec, defaultWidth)
+        val height = measureSize(heightMeasureSpec, defaultHeight)
+        setMeasuredDimension(width, height)
+    }
+
+
+    /**
+     * 计算控件最大高度
+     * @return Int
+     */
+    private fun calculateHeight(): Int {
+        var height = if (thumbSize > trackHeight) {
+            thumbSize
+        } else if (thumbSize + thumbShadowSize > trackHeight) {
             thumbSize
         } else {
             trackHeight
         }
-        if (isEnableThumbShadow) {
-            defaultHeight += (thumbShadowRadius * 2)
+        if (isEnableThumbShadow && height < thumbSize + thumbShadowSize) {
+            height = +thumbShadowSize
         }
-        val width = measureSize(widthMeasureSpec, defaultWidth)
-        val height = measureSize(heightMeasureSpec, defaultHeight)
-        setMeasuredDimension(width, height)
+        return height
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -223,8 +286,8 @@ open class SwitchButton : View {
      * @param defaultSize
      * @return
      */
-    fun measureSize(measureSpec: Int, defaultSize: Int): Int {
-        var result = 0
+    private fun measureSize(measureSpec: Int, defaultSize: Int): Int {
+        var result: Int
         val mode = MeasureSpec.getMode(measureSpec)
         val size = MeasureSpec.getSize(measureSpec)
         if (mode == MeasureSpec.EXACTLY) {
@@ -234,14 +297,6 @@ open class SwitchButton : View {
             if (mode == MeasureSpec.AT_MOST) result = result.coerceAtMost(size)
         }
         return result
-    }
-
-
-    /**
-     * View 初始化
-     */
-    protected open fun initView() {
-        setLayerType(LAYER_TYPE_SOFTWARE, null)
     }
 
 
@@ -302,7 +357,7 @@ open class SwitchButton : View {
     /**
      * 初始化View绘制路径
      */
-    protected fun initPath() {
+    private fun initPath() {
         initTrackPath()
         initThumbConfig()
     }
@@ -331,7 +386,7 @@ open class SwitchButton : View {
     protected open fun initThumbConfig() {
         var padding = (height - thumbSize) * 0.5f
         if (isEnableThumbShadow) {
-            padding -= thumbShadowRadius
+            padding -= (thumbShadowSize / 2)
         }
         thumbOffCenterX = padding + thumbSize * 0.5f
         thumbOnCenterX = width - padding - thumbSize * 0.5f
@@ -471,7 +526,7 @@ open class SwitchButton : View {
      * 开光状态监听
      * @param listener OnSwitchToggleChangeListener
      */
-    fun setToggleChangeListener(listener: OnSwitchToggleChangeListener) {
+    fun setToggleChangeListener(listener: OnSwitchChangeListener) {
         this.toggleListener = listener
     }
 

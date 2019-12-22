@@ -7,6 +7,6 @@ package io.ganguo.switchs
  *     desc   : SwitchButton状态切换回调
  * </pre>
  */
-interface OnSwitchToggleChangeListener {
+interface OnSwitchChangeListener {
     fun onSwitchToggleChange(isOpen: Boolean, button: SwitchButton)
 }
