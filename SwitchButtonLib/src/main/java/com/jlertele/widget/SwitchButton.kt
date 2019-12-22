@@ -85,36 +85,39 @@ open class SwitchButton : View {
 
 
     @ColorInt
-    protected var thumbBgShadowColor: Int = Color.BLACK
-    protected var thumbShadowDy: Int = 14
-    protected var thumbShadowDx: Int = 8
-    protected var thumbShadowRadius: Int = 16
+    var thumbBgShadowColor: Int = Color.BLACK
+    var thumbShadowDy: Int = 14
+    var thumbShadowDx: Int = 8
+    var thumbShadowRadius: Int = 16
 
     @ColorInt
-    protected var thumbOnBgColor: Int = Color.WHITE
+    var thumbOnBgColor: Int = Color.WHITE
     @ColorInt
-    protected var thumbOffBgColor: Int = Color.WHITE
+    var thumbOffBgColor: Int = Color.WHITE
     @ColorInt
-    protected var trackOffTransitBgColor: Int = Color.DKGRAY
+    var trackOffTransitBgColor: Int = Color.DKGRAY
     @ColorInt
-    protected var trackOnBgColor: Int = Color.GREEN
+    var trackOnBgColor: Int = Color.GREEN
     @ColorInt
-    protected var trackOffBgColor: Int = Color.LTGRAY
+    var trackOffBgColor: Int = Color.LTGRAY
 
     @Dimension
-    protected var thumbRadius: Int = 0
+    var thumbRadius: Int = 0
     @Dimension
-    protected var thumbSize: Int = thumbRadius * 2
+    var thumbSize: Int = thumbRadius * 2
     @Dimension
-    protected var trackWidth: Int = 0
+    var trackWidth: Int = 0
     @Dimension
-    protected var trackHeight: Int = 0
+    var trackHeight: Int = 0
     @Dimension
-    protected var trackBgRadius: Int = 0
+    var trackBgRadius: Int = 0
 
-    protected var isOpened: Boolean = false
-    protected var isOpenedLast: Boolean = !isOpened
-    protected var isEnableThumbShadow: Boolean = false
+    var isOpened: Boolean = false
+    var isOpenedLast: Boolean = !isOpened
+    var isEnableThumbShadow: Boolean = false
+    var animatedFraction: Float = 1f
+    var toggleListener: OnSwitchChangeListener? = null
+
 
     protected var trackOnPaint: Paint = Paint()
     protected var trackOffPaint: Paint = Paint()
@@ -137,8 +140,6 @@ open class SwitchButton : View {
     protected val thumbAnimator: ValueAnimator by lazy {
         newThumbAnimator()
     }
-    private var animatedFraction: Float = 1f
-    private var toggleListener: OnSwitchChangeListener? = null
 
 
     /**
@@ -522,12 +523,14 @@ open class SwitchButton : View {
         return super.onTouchEvent(event)
     }
 
+
     /**
-     * 开光状态监听
+     * 开关状态监听
      * @param listener OnSwitchToggleChangeListener
      */
-    fun setSwitchChangeListener(listener: OnSwitchChangeListener) {
+    fun setSwitchChangeListener(listener: OnSwitchChangeListener): SwitchButton {
         this.toggleListener = listener
+        return this
     }
 
 }

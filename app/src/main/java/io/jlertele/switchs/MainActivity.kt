@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.jlertele.widget.OnSwitchChangeListener
 import com.jlertele.widget.SwitchButton
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity(),
     OnSwitchChangeListener {
@@ -23,8 +24,9 @@ class MainActivity : AppCompatActivity(),
      */
     override fun onSwitchToggleChange(isOpen: Boolean, button: SwitchButton) {
         if (isOpen) {
+            toast("switch on")
         } else {
-
+            toast("switch off")
         }
     }
 }

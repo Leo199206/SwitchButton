@@ -44,15 +44,15 @@ class SwitchIOSButton : SwitchButton {
 
 
     @ColorInt
-    private var iosLeftLineColor: Int = Color.WHITE
-    private var iosLeftLineHeight: Int = 0
-    private var iosLeftLineWidth: Int = 2
-    private var iosLeftLineMarginLeft: Int = 0
+    var iosLeftLineColor: Int = Color.WHITE
+    var iosLeftLineHeight: Int = 0
+    var iosLeftLineWidth: Int = 2
+    var iosLeftLineMarginLeft: Int = 0
     @ColorInt
-    private var iosRightCircleColor: Int = Color.LTGRAY
-    private var iosRightCircleRadius: Int = 0
-    private var iosRightCircleWidth: Int = 0
-    private var iosRightCircleMarginRight: Int = iosLeftLineMarginLeft - iosRightCircleRadius
+    var iosRightCircleColor: Int = Color.LTGRAY
+    var iosRightCircleRadius: Int = 0
+    var iosRightCircleWidth: Int = 0
+    var iosRightCircleMarginRight: Int = iosLeftLineMarginLeft - iosRightCircleRadius
 
     private var linePath: Path = Path()
     private var circlePath: Path = Path()

@@ -44,9 +44,9 @@ dependencies {
 
 
 
-def siteUrl = 'https://github.com/lsmya/androidTool'
-def gitUrl = 'https://github.com/lsmya/androidTool.git'
-def issuesUrl = 'https://github.com/lsmya/androidTool/issues'
+def siteUrl = 'https://github.com/jlertele'
+def gitUrl = 'https://github.com/jlertele/SwitchButton.git'
+def issuesUrl = 'https://github.com/jlertele/SwitchButton/issues'
 group = "com.jlertele.widget"
 install {
     repositories.mavenInstaller {
