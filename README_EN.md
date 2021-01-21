@@ -6,8 +6,6 @@
 + Support for Material Design style switch button
 + Simple and configurable API
 
-#### [中文版本说明](https://github.com/jlertele/SwitchButton/README_EN.md)
-
 #### Style preview
 <img src="https://github.com/jlertele/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
 
