@@ -5,7 +5,7 @@
 
 #### Style preview
 
-<img src="https://github.com/jlertele/SwitchButton/blob/master/image/switch_button_off.png?raw=true" width="300" heght="500" align=center />
+<img src="https://github.com/jlertele/SwitchButton/app/image/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
 
 <img src="https://github.com/jlertele/SwitchButton/blob/master/image/switch_button_on.png?raw=true" width="300" heght="500" align=center />
 
