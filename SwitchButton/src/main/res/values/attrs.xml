@@ -1,4 +1,5 @@
 <resources>
+
     <declare-styleable name="SwitchButton">
         <attr name="thumbBgShadowColor" format="color" />
         <attr name="thumbRadius" format="dimension" />
@@ -16,6 +17,7 @@
         <attr name="thumbShadowDy" format="integer" />
         <attr name="thumbShadowDx" format="integer" />
         <attr name="thumbShadowRadius" format="integer" />
+        <attr name="iosLeftLineShow" format="boolean" />
         <attr name="iosLeftLineColor" format="color" />
         <attr name="iosLeftLineHeight" format="dimension" />
         <attr name="iosLeftLineWidth" format="dimension" />
@@ -23,6 +25,7 @@
         <attr name="iosRightCircleColor" format="color" />
         <attr name="iosRightCircleRadius" format="dimension" />
         <attr name="iosRightCircleWidth" format="dimension" />
+        <attr name="iosRightCircleShow" format="boolean" />
         <attr name="iosRightCircleMarginRight" format="dimension" />
     </declare-styleable>
 </resources>

@@ -1,14 +1,14 @@
 package io.jlertele.switchs
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jlertele.widget.OnSwitchChangeListener
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.jlertele.widget.SwitchButton
+import com.jlertele.widget.SwitchChangeListener
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity(),
-    OnSwitchChangeListener {
+    SwitchChangeListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity(),
      */
     override fun onSwitchToggleChange(isOpen: Boolean, button: SwitchButton) {
         if (isOpen) {
-            toast("switch on")
+            Toast.makeText(this, "switch on", Toast.LENGTH_SHORT)
         } else {
-            toast("switch off")
+            Toast.makeText(this, "switch on", Toast.LENGTH_SHORT)
         }
     }
 }

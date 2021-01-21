@@ -1,5 +1,6 @@
 package com.jlertele.widget
 
+
 /**
  * <pre>
  *     author : leo
@@ -7,6 +8,6 @@ package com.jlertele.widget
  *     desc   : SwitchButton状态切换回调
  * </pre>
  */
-interface OnSwitchChangeListener {
+interface SwitchChangeListener {
     fun onSwitchToggleChange(isOpen: Boolean, button: SwitchButton)
 }

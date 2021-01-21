@@ -42,12 +42,15 @@ class SwitchIOSButton : SwitchButton {
         initIOSPaint()
     }
 
+    private var iosRightCircleShow: Boolean = false
+    private var iosLeftLineShow: Boolean = false
 
     @ColorInt
     var iosLeftLineColor: Int = Color.WHITE
     var iosLeftLineHeight: Int = 0
     var iosLeftLineWidth: Int = 2
     var iosLeftLineMarginLeft: Int = 0
+
     @ColorInt
     var iosRightCircleColor: Int = Color.LTGRAY
     var iosRightCircleRadius: Int = 0
@@ -80,6 +83,10 @@ class SwitchIOSButton : SwitchButton {
             R.styleable.SwitchButton_iosLeftLineMarginLeft,
             (trackWidth * 0.2f).toInt()
         )
+        iosLeftLineShow = array.getBoolean(
+            R.styleable.SwitchButton_iosLeftLineShow,
+            false
+        )
 
 
         iosRightCircleColor =
@@ -95,6 +102,10 @@ class SwitchIOSButton : SwitchButton {
         iosRightCircleMarginRight = array.getDimensionPixelOffset(
             R.styleable.SwitchButton_iosRightCircleMarginRight,
             iosLeftLineMarginLeft
+        )
+        iosRightCircleShow = array.getBoolean(
+            R.styleable.SwitchButton_iosLeftLineShow,
+            false
         )
         array.recycle()
     }
@@ -121,16 +132,24 @@ class SwitchIOSButton : SwitchButton {
     }
 
 
+    /**
+     * 绘制按钮底部圆条部分
+     * @param canvas Canvas
+     */
     override fun onDrawToggleTrack(canvas: Canvas) {
         super.onDrawToggleTrack(canvas)
-        onDrawLeftLine(canvas)
-        onDrawRightCircle(canvas)
-
+        if (iosLeftLineShow) {
+            onDrawLeftLine(canvas)
+        }
+        if (iosRightCircleShow) {
+            onDrawRightCircle(canvas)
+        }
     }
 
 
     /**
      * 绘制左边竖线
+     * @param canvas Canvas
      */
     private fun onDrawLeftLine(canvas: Canvas) {
         linePath.reset()
@@ -147,11 +166,12 @@ class SwitchIOSButton : SwitchButton {
 
     /**
      * 绘制右侧小圆圈
+     * @param canvas Canvas
      */
     private fun onDrawRightCircle(canvas: Canvas) {
         circlePath.reset()
-        var centerX = width - iosRightCircleMarginRight - iosRightCircleRadius
-        var centerY = height * 0.5f
+        val centerX = width - iosRightCircleMarginRight - iosRightCircleRadius
+        val centerY = height * 0.5f
         circlePath.addCircle(
             centerX.toFloat(),
             centerY,
@@ -161,6 +181,24 @@ class SwitchIOSButton : SwitchButton {
         canvas.save()
         canvas.drawPath(circlePath, circlePaint)
         canvas.restore()
+    }
+
+    /**
+     * 设置iOS风格按钮，左侧 ౦ 是否显示
+     * @return Boolean
+     */
+    fun setShowRightCircle(isShow: Boolean) {
+        this.iosRightCircleShow = isShow
+        postInvalidate()
+    }
+
+    /**
+     * 设置iOS风格按钮，左侧 | 是否显示
+     * @return Boolean
+     */
+    fun setShowLeftLine(isShow: Boolean) {
+        this.iosLeftLineShow = isShow
+        postInvalidate()
     }
 
 

@@ -92,23 +92,31 @@ open class SwitchButton : View {
 
     @ColorInt
     var thumbOnBgColor: Int = Color.WHITE
+
     @ColorInt
     var thumbOffBgColor: Int = Color.WHITE
+
     @ColorInt
     var trackOffTransitBgColor: Int = Color.DKGRAY
+
     @ColorInt
     var trackOnBgColor: Int = Color.GREEN
+
     @ColorInt
     var trackOffBgColor: Int = Color.LTGRAY
 
     @Dimension
     var thumbRadius: Int = 0
+
     @Dimension
     var thumbSize: Int = thumbRadius * 2
+
     @Dimension
     var trackWidth: Int = 0
+
     @Dimension
     var trackHeight: Int = 0
+
     @Dimension
     var trackBgRadius: Int = 0
 
@@ -116,28 +124,27 @@ open class SwitchButton : View {
     var isOpenedLast: Boolean = !isOpened
     var isEnableThumbShadow: Boolean = false
     var animatedFraction: Float = 1f
-    var toggleListener: OnSwitchChangeListener? = null
+    var toggleListener: SwitchChangeListener? = null
 
 
-    protected var trackOnPaint: Paint = Paint()
-    protected var trackOffPaint: Paint = Paint()
-    protected var thumbShadowPaint = Paint()
-    protected var thumbOnBgPaint: Paint = Paint()
-    protected var thumbOffBgPaint: Paint = Paint()
-    protected var trackPath: Path = Path()
-    protected var thumbPath: Path = Path()
-    protected var thumbShadowPath: Path = Path()
-    protected var trackRectF = RectF()
-
-    protected var thumbOffCenterX: Float = 0f
-    protected var thumbOnCenterX: Float = 0f
-    protected var thumbCenterY: Float = 0f
-    protected var thumbTotalOffset: Float = 0f
-    protected var thumbOffsetParent: Float = 0f
-    protected var thumbAnimatorDuration: Int = 300
-    protected var thumbShadowSize: Int = 0
-    protected var bgAlpha: Int = 0
-    protected val thumbAnimator: ValueAnimator by lazy {
+    protected open var trackOnPaint: Paint = Paint()
+    protected open var trackOffPaint: Paint = Paint()
+    protected open var thumbShadowPaint = Paint()
+    protected open var thumbOnBgPaint: Paint = Paint()
+    protected open var thumbOffBgPaint: Paint = Paint()
+    protected open var trackPath: Path = Path()
+    protected open var thumbPath: Path = Path()
+    protected open var thumbShadowPath: Path = Path()
+    protected open var trackRectF = RectF()
+    protected open var thumbOffCenterX: Float = 0f
+    protected open var thumbOnCenterX: Float = 0f
+    protected open var thumbCenterY: Float = 0f
+    protected open var thumbTotalOffset: Float = 0f
+    protected open var thumbOffsetParent: Float = 0f
+    protected open var thumbAnimatorDuration: Int = 300
+    protected open var thumbShadowSize: Int = 0
+    protected open var bgAlpha: Int = 0
+    protected open val thumbAnimator: ValueAnimator by lazy {
         newThumbAnimator()
     }
 
@@ -528,7 +535,7 @@ open class SwitchButton : View {
      * 开关状态监听
      * @param listener OnSwitchToggleChangeListener
      */
-    fun setSwitchChangeListener(listener: OnSwitchChangeListener): SwitchButton {
+    fun setSwitchChangeListener(listener: SwitchChangeListener): SwitchButton {
         this.toggleListener = listener
         return this
     }
