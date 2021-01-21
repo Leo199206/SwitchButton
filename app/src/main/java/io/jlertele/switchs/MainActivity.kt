@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(),
         if (isOpen) {
             Toast.makeText(this, "switch on", Toast.LENGTH_SHORT)
         } else {
-            Toast.makeText(this, "switch on", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "switch off", Toast.LENGTH_SHORT)
         }
     }
 }
