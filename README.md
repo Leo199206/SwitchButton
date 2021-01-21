@@ -1,9 +1,11 @@
+#### 使用说明文档
+[English documentation](https://github.com/jlertele/SwitchButton/blob/master/README_EN.md)
+
 + kotlin语言编写
 + 支持配置为iOS风格样式
 + 支持配置为原生Material Design风格样式
-+ 灵活、可配置的api
++ API灵活，可自定义配置不同样式
 
-#### [English version description](https://github.com/jlertele/SwitchButton/blob/master/README_EN.md)
 
 #### 效果预览
 <img src="https://github.com/jlertele/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
