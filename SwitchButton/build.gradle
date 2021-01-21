@@ -6,7 +6,6 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'org.jetbrains.dokka'
 
 
-
 version = "1.0.1"
 android {
     resourcePrefix "androidTool"
@@ -16,6 +15,7 @@ android {
         experimental = true
     }
 
+
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 29
@@ -24,6 +24,17 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    sourceSets {
+        debug.setRoot('src/debug')
+        release.setRoot('src/release')
+        main {
+            //配置java和kotlin源码目录
+            java.srcDirs = ['src/main/kotlin', 'src/main/java']
+            //指定jniLibs文件存放目录（.so文件）
+            jniLibs.srcDirs = ['libs']
+        }
     }
 
     buildTypes {
@@ -43,8 +54,7 @@ dependencies {
     implementation "org.jetbrains.trove4j:trove4j:20160824"
 }
 
-
-
+//上传到Maven库配置
 def siteUrl = 'https://github.com/jlertele'
 def gitUrl = 'https://github.com/jlertele/SwitchButton.git'
 def issuesUrl = 'https://github.com/jlertele/SwitchButton/issues'
