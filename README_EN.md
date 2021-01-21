@@ -1,3 +1,6 @@
+#### Instructions for use document
+[中文说明文档](https://github.com/jlertele/SwitchButton/blob/master/README.md)
+
 + kotlin language development
 + Support for iOS style switch button
 + Support for Material Design style switch button
@@ -6,8 +9,7 @@
 #### [中文版本说明](https://github.com/jlertele/SwitchButton/README_EN.md)
 
 #### Style preview
-
-<img src="https://github.com/jlertele/SwitchButton/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
+<img src="https://github.com/jlertele/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
 
 
 #### Dependency
