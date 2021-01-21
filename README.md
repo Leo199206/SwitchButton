@@ -6,7 +6,7 @@
 #### [English version description](https://github.com/jlertele/SwitchButton/blob/master/README_EN.md)
 
 #### 效果预览
-<img src="https://github.com/jlertele/SwitchButton/blob/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
+<img src="https://github.com/jlertele/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
 
 
 #### 依赖
