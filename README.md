@@ -3,10 +3,10 @@
 + 支持配置为原生Material Design风格样式
 + 灵活、可配置的api
 
-#### [English version description](https://github.com/jlertele/SwitchButton/README_EN.md)
+#### [English version description](https://github.com/jlertele/SwitchButton/blob/master/README_EN.md)
 
 #### 效果预览
-<img src="https://github.com/jlertele/SwitchButton/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
+<img src="https://github.com/jlertele/SwitchButton/blob/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
 
 
 #### 依赖
