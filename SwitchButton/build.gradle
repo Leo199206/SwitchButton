@@ -7,7 +7,7 @@ apply plugin: 'org.jetbrains.dokka'
 
 
 
-version = "1.0.0"
+version = "1.0.1"
 android {
     resourcePrefix "androidTool"
     compileSdkVersion 29
@@ -40,6 +40,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation "androidx.annotation:annotation:1.1.0"
+    implementation "org.jetbrains.trove4j:trove4j:20160824"
 }
 
 
@@ -55,7 +56,7 @@ install {
             project {
                 packaging 'aar'
                 // Add your description here
-                name 'Android&&iOS Switch Button Library'    //项目描述
+                name 'Android && iOS Switch Button Library'    //项目描述
                 url siteUrl
                 // Set your license
                 licenses {
