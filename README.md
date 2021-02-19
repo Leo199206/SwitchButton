@@ -1,16 +1,14 @@
 #### 使用说明文档
-[English documentation](https://github.com/Leo199206/SwitchButton/blob/master/README_EN.md)
-
+[English documentation](https://raw.githubusercontent.com/Leo199206/SwitchButton/master/README_EN.md)
+> 如果该库对你有帮助，请动动你的小手指，给个star哦🤩
 + kotlin语言编写
 + 支持配置为iOS风格样式
 + 支持配置为原生Material Design风格样式
 + API灵活，可自定义配置不同样式
 
-如果该库对你有帮助，请动动你的小手指，给个star哦🤩
-
 
 #### 效果预览
-<img src="https://github.com/Leo199206/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
+<img src="https://raw.githubusercontent.com/Leo199206/SwitchButton/master/device-2021-01-21-171055.gif" width="300" heght="500" align=center />
 
 
 #### 依赖
@@ -19,7 +17,7 @@
 ```
 allprojects {
     repositories {
-        maven { url "https://jcenter.bintray.com" }
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
@@ -27,7 +25,7 @@ allprojects {
 + 添加以下maven依赖配置到app模块，gradle文件下
 
 ```
-implementation  'com.jlertele.widget:SwitchButtonLib:1.0.1'
+implementation 'com.github.Leo199206:SwitchButton:1.0.0'
 ```
 
 #### 添加到布局
@@ -112,8 +110,9 @@ implementation  'com.jlertele.widget:SwitchButtonLib:1.0.1'
 
 
 
-| thumbBgShadowColor  | Slider Shadow color |
+| 属性  | 作用 |
 | --- | --- |
+| thumbBgShadowColor  | Slider Shadow color |
 | thumbRadius | 滑块的半径 |
 | thumbOnBgColor | 按钮状态为打开时，滑块的颜色 |
 | thumbOffBgColor | 按钮状态为关闭时，滑块的颜色 |
@@ -141,5 +140,5 @@ implementation  'com.jlertele.widget:SwitchButtonLib:1.0.1'
 | iosRightCircleShow | iOS风格，右边圆圈是否显示. 只有SwitchIOSButton支持 |
 
 #### LICENSE
-SwitchButton is under the Apache License Version 2.0. See the [LICENSE](https://raw.githubusercontent.com/jlertele/SwitchButton/master/LICENSE) file for details.
+SwitchButton is under the Apache License Version 2.0. See the [LICENSE](https://raw.githubusercontent.com/Leo199206/SwitchButton/master/LICENSE) file for details.
 

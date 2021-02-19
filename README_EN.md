@@ -1,15 +1,15 @@
 #### Instructions for use document
 [中文说明文档](https://github.com/Leo199206/SwitchButton/blob/master/README.md)
+> If it helps, please give a star.🤩
 
 + kotlin language development
 + Support for iOS style switch button
 + Support for Material Design style switch button
 + Simple and configurable API
 
-If it helps, please give a star.🤩
 
 #### Style preview
-<img src="https://github.com/Leo199206/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
+<img src="https://raw.githubusercontent.com/Leo199206/SwitchButton/master/device-2021-01-21-171055.gif" width="300" heght="500" align=center />
 
 
 #### Dependency
@@ -18,7 +18,7 @@ If it helps, please give a star.🤩
 ```
 allprojects {
     repositories {
-        maven { url "https://jcenter.bintray.com" }
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
@@ -26,7 +26,7 @@ allprojects {
 + Then, add the library to your module build.gradle
 
 ```
-implementation  'com.jlertele.widget:SwitchButtonLib:1.0.0'
+implementation  'com.github.Leo199206:SwitchButton:1.0.0'
 ```
 
 #### import layout
@@ -107,10 +107,9 @@ implementation  'com.jlertele.widget:SwitchButtonLib:1.0.0'
 #### Attributes that
 
 
-
-
-| thumbBgShadowColor  | Slider Shadow color |
+| attribute  | Description |
 | --- | --- |
+| thumbBgShadowColor  | Slider Shadow color |
 | thumbRadius | Slider radius |
 | thumbOnBgColor | On, slider color |
 | thumbOffBgColor | Off, slider color |
@@ -138,5 +137,5 @@ implementation  'com.jlertele.widget:SwitchButtonLib:1.0.0'
 | iosRightCircleShow | iOS style, whether the circle on the right is displayed. Only SwitchIOSButton supports |
 
 #### LICENSE
-SwitchButton is under the Apache License Version 2.0. See the [LICENSE](https://raw.githubusercontent.com/jlertele/SwitchButton/master/LICENSE) file for details.
+SwitchButton is under the Apache License Version 2.0. See the [LICENSE](https://raw.githubusercontent.com/Leo199206/SwitchButton/master/LICENSE) file for details.
 
