@@ -1,5 +1,5 @@
 #### Instructions for use document
-[中文说明文档](https://github.com/jlertele/SwitchButton/blob/master/README.md)
+[中文说明文档](https://github.com/Leo199206/SwitchButton/blob/master/README.md)
 
 + kotlin language development
 + Support for iOS style switch button
@@ -9,7 +9,7 @@
 If it helps, please give a star.🤩
 
 #### Style preview
-<img src="https://github.com/jlertele/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
+<img src="https://github.com/Leo199206/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
 
 
 #### Dependency
