@@ -6,6 +6,8 @@
 + 支持配置为原生Material Design风格样式
 + API灵活，可自定义配置不同样式
 
+如果该库对你有帮助，请动动你的小手指，给个start哦🤩
+
 
 #### 效果预览
 <img src="https://github.com/jlertele/SwitchButton/blob/master/device-2021-01-21-171055.gif?raw=true" width="300" heght="500" align=center />
