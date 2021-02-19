@@ -128,16 +128,16 @@ implementation 'com.github.Leo199206:SwitchButton:1.0.0'
 | thumbShadowDy | 滑块阴影Y轴偏移量，默认为14 |
 | thumbShadowDx | 滑块阴影X轴偏移量，默认为8 |
 | thumbShadowRadius | 滑块阴影圆角半径 |
-| iosLeftLineColor | iOS风格按钮，左侧竖线颜色. 只有SwitchIOSButton支持 |
-| iosLeftLineHeight | iOS风格按钮，左侧竖线高度. 只有SwitchIOSButton支持|
-| iosLeftLineWidth | iOS风格按钮，左侧竖线宽度. 只有SwitchIOSButton支持 |
+| iosLeftLineColor | iOS风格按钮，左侧竖线颜色. 仅SwitchIOSButton支持 |
+| iosLeftLineHeight | iOS风格按钮，左侧竖线高度. 仅SwitchIOSButton支持|
+| iosLeftLineWidth | iOS风格按钮，左侧竖线宽度. 仅SwitchIOSButton支持 |
 | iosLeftLineMarginLeft | iOS风格按钮，左侧竖线左边距. 只有SwitchIOSButton支持 |
-| iosRightCircleColor | iOS风格按钮，右侧圆圈颜色. 只有SwitchIOSButton支持 |
-| iosRightCircleRadius | iOS风格按钮，右侧圆圈半径. 只有SwitchIOSButton支持 |
-| iosRightCircleWidth | iOS风格按钮，右侧圆圈线条大小颜色(不是圆的尺寸). 只有SwitchIOSButton支持 |
-| iosRightCircleMarginRight | iOS风格，右侧圆圈线右边距. 只有SwitchIOSButton支持 |
-| iosLeftLineShow | iOS风格，左边竖线是否显示. 只有SwitchIOSButton支持 |
-| iosRightCircleShow | iOS风格，右边圆圈是否显示. 只有SwitchIOSButton支持 |
+| iosRightCircleColor | iOS风格按钮，右侧圆圈颜色. 仅SwitchIOSButton支持 |
+| iosRightCircleRadius | iOS风格按钮，右侧圆圈半径. 仅SwitchIOSButton支持 |
+| iosRightCircleWidth | iOS风格按钮，右侧圆圈线条大小颜色(不是圆的尺寸). 仅SwitchIOSButton支持 |
+| iosRightCircleMarginRight | iOS风格，右侧圆圈线右边距. 仅SwitchIOSButton支持 |
+| iosLeftLineShow | iOS风格，左边竖线是否显示. 仅SwitchIOSButton支持 |
+| iosRightCircleShow | iOS风格，右边圆圈是否显示. 仅SwitchIOSButton支持 |
 
 #### LICENSE
 SwitchButton is under the Apache License Version 2.0. See the [LICENSE](https://raw.githubusercontent.com/Leo199206/SwitchButton/master/LICENSE) file for details.
